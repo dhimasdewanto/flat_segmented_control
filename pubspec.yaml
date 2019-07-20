@@ -2,7 +2,7 @@ name: flat_segmented_control
 description: Segmented control with FlatButton.
 version: 0.0.1
 author: Dhimas Dewanto<dhimasbrd@gmail.com>
-homepage:
+homepage: https://github.com/dhimasdewanto/flat_segmented_control
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
