@@ -7,17 +7,18 @@ class FlatSegmentedControl extends StatefulWidget {
   final List<Widget> navChildren;
   final EdgeInsetsGeometry padding;
   final EdgeInsetsGeometry navPadding;
+  final double height;
 
   FlatSegmentedControl({
     Key key,
     @required this.children,
     @required this.navChildren,
+    @required this.height,
     this.padding = const EdgeInsets.all(0.0),
     this.navPadding = const EdgeInsets.all(0.0),
   }) : super(key: key);
 
-  _FlatSegmentedControlState createState() =>
-      _FlatSegmentedControlState();
+  _FlatSegmentedControlState createState() => _FlatSegmentedControlState();
 }
 
 class _FlatSegmentedControlState extends State<FlatSegmentedControl> {
@@ -34,15 +35,13 @@ class _FlatSegmentedControlState extends State<FlatSegmentedControl> {
             children: _getListNavs(),
           ),
         ),
-        Flexible(
-          fit: FlexFit.loose,
-          child: Container(
-            padding: widget.padding,
-            child: PageView(
-              physics: NeverScrollableScrollPhysics(),
-              controller: _pageController,
-              children: widget.children,
-            ),
+        Container(
+          padding: widget.padding,
+          height: widget.height,
+          child: PageView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: _pageController,
+            children: widget.children,
           ),
         ),
       ],
