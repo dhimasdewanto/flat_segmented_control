@@ -35,6 +35,7 @@ class _FlatSegmentedControlState extends State<FlatSegmentedControl> {
           ),
         ),
         Flexible(
+          fit: FlexFit.loose,
           child: Container(
             padding: widget.padding,
             child: PageView(
