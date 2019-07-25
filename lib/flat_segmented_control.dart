@@ -7,6 +7,7 @@ class FlatSegmentedControl extends StatefulWidget {
   final List<Widget> navChildren;
   final EdgeInsetsGeometry padding;
   final EdgeInsetsGeometry navPadding;
+  final AlignmentGeometry navAlignment;
 
   FlatSegmentedControl({
     Key key,
@@ -14,10 +15,22 @@ class FlatSegmentedControl extends StatefulWidget {
     @required this.navChildren,
     this.padding = const EdgeInsets.all(0.0),
     this.navPadding = const EdgeInsets.all(0.0),
-  }) : super(key: key);
+    this.navAlignment = Alignment.centerLeft,
+  })  : assert(
+          children != null,
+          "Please fill the children.",
+        ),
+        assert(
+          navChildren != null,
+          "Please fill the navChildren.",
+        ),
+        assert(
+          navChildren.length == children.length,
+          "Length children and navChildren must be the same.",
+        ),
+        super(key: key);
 
-  _FlatSegmentedControlState createState() =>
-      _FlatSegmentedControlState();
+  _FlatSegmentedControlState createState() => _FlatSegmentedControlState();
 }
 
 class _FlatSegmentedControlState extends State<FlatSegmentedControl> {
@@ -29,8 +42,10 @@ class _FlatSegmentedControlState extends State<FlatSegmentedControl> {
     return Column(
       children: <Widget>[
         Container(
+          alignment: widget.navAlignment,
           padding: widget.navPadding,
           child: Row(
+            mainAxisSize: MainAxisSize.min,
             children: _getListNavs(),
           ),
         ),
