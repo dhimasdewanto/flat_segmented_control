@@ -10,6 +10,8 @@ class FlatSegmentedControl extends StatefulWidget {
   final Color unselectedLabelColor;
   final bool isChildrenScrollable;
   final EdgeInsetsGeometry tabPadding;
+  final double width;
+  final double height;
 
   FlatSegmentedControl({
     Key key,
@@ -20,6 +22,8 @@ class FlatSegmentedControl extends StatefulWidget {
     this.isChildrenScrollable = false,
     this.unselectedLabelColor,
     this.tabPadding = EdgeInsets.zero,
+    this.width,
+    this.height,
   })  : assert(children != null),
         assert(tabChildren != null),
         assert(tabChildren.length == children.length),
@@ -50,32 +54,36 @@ class _FlatSegmentedControlState extends State<FlatSegmentedControl>
 
   @override
   Widget build(BuildContext context) {
-    return Flex(
-      direction: Axis.vertical,
-      children: <Widget>[
-        Padding(
-          padding: widget.tabPadding,
-          child: TabBar(
-            controller: _tabController,
-            tabs: widget.tabChildren,
-            indicatorColor:
-                widget.indicatorColor ?? Theme.of(context).primaryColor,
-            labelColor:
-                widget.labelColor ?? Theme.of(context).textTheme.body1.color,
-            unselectedLabelColor: widget.unselectedLabelColor ??
-                Theme.of(context).textTheme.body1.color,
+    return Container(
+      height: widget.height ?? MediaQuery.of(context).size.height,
+      width: widget.width ?? MediaQuery.of(context).size.width,
+      child: Flex(
+        direction: Axis.vertical,
+        children: <Widget>[
+          Padding(
+            padding: widget.tabPadding,
+            child: TabBar(
+              controller: _tabController,
+              tabs: widget.tabChildren,
+              indicatorColor:
+                  widget.indicatorColor ?? Theme.of(context).primaryColor,
+              labelColor:
+                  widget.labelColor ?? Theme.of(context).textTheme.body1.color,
+              unselectedLabelColor: widget.unselectedLabelColor ??
+                  Theme.of(context).textTheme.body1.color,
+            ),
           ),
-        ),
-        Expanded(
-          child: TabBarView(
-            controller: _tabController,
-            physics: widget.isChildrenScrollable
-                ? ScrollPhysics()
-                : NeverScrollableScrollPhysics(),
-            children: widget.children,
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              physics: widget.isChildrenScrollable
+                  ? ScrollPhysics()
+                  : NeverScrollableScrollPhysics(),
+              children: widget.children,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
