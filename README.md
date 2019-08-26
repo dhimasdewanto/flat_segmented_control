@@ -2,7 +2,7 @@
 
 Segemented Control with TabView for Flutter. Inspired by SegmentedControl (iOS) and Material Design.
 
-![Gif Example](https://raw.githubusercontent.com/dhimasdewanto/flat_segmented_control/master/readme_assets/example.gif)
+![Gif Example](https://raw.githubusercontent.com/dhimasdewanto/flat_segmented_control/master/readme_assets/readme.gif)
 
 ## How to use
 
