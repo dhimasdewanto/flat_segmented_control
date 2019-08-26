@@ -1,6 +1,6 @@
 name: flat_segmented_control
 description: Segemented Control with TabView. Inspired by SegmentedControl (iOS) and Material Design.
-version: 0.1.1
+version: 0.1.0
 author: Dhimas Dewanto<dhimasbrd@gmail.com>
 homepage: https://github.com/dhimasdewanto/flat_segmented_control
 
