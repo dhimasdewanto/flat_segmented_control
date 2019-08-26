@@ -6,6 +6,6 @@
 
 * Now required to insert height of children.
 
-## [0.1.0] - 2019-07-20
+## [0.1.0] - 2019-08-26
 
 * Now based on TabBar and TabBarView. Constructor has also been changed. Read README.md for more info.
