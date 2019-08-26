@@ -1,11 +1,11 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 2019-07-20
 
-* TODO: Describe initial release.
+* Initial Release.
 
-## [0.0.2] - Remove Flexible and replaced with height.
+## [0.0.2] - 2019-07-20
 
 * Now required to insert height of children.
 
-## [0.1.0] - Now based on TabBar and TabBarView.
+## [0.1.0] - 2019-07-20
 
-* Constructor has also been changed. Read README.md for more info.
+* Now based on TabBar and TabBarView. Constructor has also been changed. Read README.md for more info.
