@@ -26,22 +26,35 @@ class MyHomePage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          Text(
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          Center(
+            child: FlutterLogo(
+              size: 150.0,
+            ),
           ),
+          SizedBox(height: 20.0),
           FlatSegmentedControl(
             tabChildren: <Widget>[
-              Text("Tab 1"),
-              Text("Tab 2"),
-              Text("Tab 3"),
+              Container(
+                height: 50.0,
+                child: Center(child: Text("Tab 1")),
+              ),
+              Container(
+                height: 50.0,
+                child: Center(child: Text("Tab 2")),
+              ),
+              Container(
+                height: 50.0,
+                child: Center(child: Text("Tab 3")),
+              ),
             ],
+            childrenHeight: 150.0,
             children: <Widget>[
               Center(child: Text("View 1")),
-              Text("View 2"),
-              Text("View 3"),
+              Center(child: Text("View 2")),
+              Center(child: Text("View 3")),
             ],
-            
           ),
+          SizedBox(height: 20.0),
           Text(
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
           ),
