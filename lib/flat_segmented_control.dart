@@ -4,14 +4,47 @@ import 'package:flutter/material.dart';
 
 class FlatSegmentedControl extends StatefulWidget {
   final List<Widget> children;
+
   final List<Widget> tabChildren;
+
+  /// The color of the line that appears below the selected tab.
+  ///
+  /// Defaults to Theme's indicatorColor [Theme.of(context).indicatorColor].
   final Color indicatorColor;
+
+  /// The color of selected tab labels.
+  ///
+  /// Defaults to text body2 color [Theme.of(context).textTheme.body2.color].
   final Color labelColor;
+
+  /// The color of unselected tab labels.
+  ///
+  /// Defaults to text body2 color [Theme.of(context).textTheme.body2.color].
   final Color unselectedLabelColor;
-  final bool isChildrenScrollable;
+
+  /// Whether the children can be swiped horizontally.
+  /// 
+  /// Defaults to [false].
+  final bool isChildrenSwipeable;
+
+  /// Padding of tab menu, not tab children.
+  /// 
+  /// Defaults to [EdgeInsets.zero]
   final EdgeInsetsGeometry tabPadding;
+
+  /// The view padding.
+  /// 
+  /// Defaults to [EdgeInsets.zero]
   final EdgeInsetsGeometry childrenPadding;
+
+  /// Define the children width. Please change as desired.
+  /// 
+  /// Defaults to device width.
   final double childrenWidth;
+
+  /// Define the children height. Please change as desired.
+  /// 
+  /// Defaults to device height.
   final double childrenHeight;
 
   FlatSegmentedControl({
@@ -20,7 +53,7 @@ class FlatSegmentedControl extends StatefulWidget {
     @required this.tabChildren,
     this.indicatorColor,
     this.labelColor,
-    this.isChildrenScrollable = false,
+    this.isChildrenSwipeable = false,
     this.unselectedLabelColor,
     this.tabPadding,
     this.childrenPadding,
@@ -63,12 +96,11 @@ class _FlatSegmentedControlState extends State<FlatSegmentedControl>
           child: TabBar(
             controller: _tabController,
             tabs: widget.tabChildren,
-            indicatorColor:
-                widget.indicatorColor ?? Theme.of(context).primaryColor,
+            indicatorColor: widget.indicatorColor,
             labelColor:
-                widget.labelColor ?? Theme.of(context).textTheme.body1.color,
+                widget.labelColor ?? Theme.of(context).textTheme.body2.color,
             unselectedLabelColor: widget.unselectedLabelColor ??
-                Theme.of(context).textTheme.body1.color,
+                Theme.of(context).textTheme.body2.color,
           ),
         ),
         Container(
@@ -77,7 +109,7 @@ class _FlatSegmentedControlState extends State<FlatSegmentedControl>
           padding: widget.childrenPadding ?? EdgeInsets.zero,
           child: TabBarView(
             controller: _tabController,
-            physics: widget.isChildrenScrollable
+            physics: widget.isChildrenSwipeable
                 ? ScrollPhysics()
                 : NeverScrollableScrollPhysics(),
             children: widget.children,
