@@ -23,27 +23,27 @@ class FlatSegmentedControl extends StatefulWidget {
   final Color unselectedLabelColor;
 
   /// Whether the children can be swiped horizontally.
-  /// 
+  ///
   /// Defaults to [false].
   final bool isChildrenSwipeable;
 
   /// Padding of tab menu, not tab children.
-  /// 
+  ///
   /// Defaults to [EdgeInsets.zero]
   final EdgeInsetsGeometry tabPadding;
 
   /// The view padding.
-  /// 
+  ///
   /// Defaults to [EdgeInsets.zero]
   final EdgeInsetsGeometry childrenPadding;
 
   /// Define the children width. Please change as desired.
-  /// 
+  ///
   /// Defaults to device width.
   final double childrenWidth;
 
   /// Define the children height. Please change as desired.
-  /// 
+  ///
   /// Defaults to device height.
   final double childrenHeight;
 
